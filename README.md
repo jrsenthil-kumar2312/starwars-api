@@ -24,7 +24,12 @@ or
 docker-compose up --build
 ```
 
-To run unit tests:
+The app should be accessible from : http://127.0.0.1:8000/
+
+Swagger is available at the following url: http://127.0.0.1:8000/swagger/
+
+
+To run the unit tests:
 ```
 docker-compose run --rm web pytest
 ```
