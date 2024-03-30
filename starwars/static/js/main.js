@@ -91,5 +91,5 @@ $('#fetch-data-link').click(function() {
 
     setTimeout(function() {
         hideSpinner();
-    }, 15000);
+    }, 20000);
 })

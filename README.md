@@ -11,6 +11,7 @@ IMPORTANT NOTE:
    it may take longer for the file to be generated from SWAPI.
    ( do wait a while for the file to be generated.)
 6. Files are formatted with isort, black and pylint.
+7. I have added some unit tests but it does not cover all the lines.
 
 Clone this repo anywhere you want and move into the directory:
 
