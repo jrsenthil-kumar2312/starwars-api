@@ -1,21 +1,18 @@
-import requests
-import petl as etl
-from petl.util.base import Table
-from datetime import datetime
-
-from django.shortcuts import render
-from django.core.paginator import Paginator
-from django.http import JsonResponse, HttpResponseRedirect, HttpResponse
-from django.urls import reverse
-
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status, permissions
-
-from starwars.star_wars import StarWarsCharacters
-from starwars.repository import StarWarsCharactersFileMetadataRepository
-
 import logging
+
+import petl as etl
+import requests
+from django.core.paginator import Paginator
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from django.shortcuts import render
+from django.urls import reverse
+from petl.util.base import Table
+from rest_framework import permissions, status
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
+from starwars.repository import StarWarsCharactersFileMetadataRepository
+from starwars.star_wars import StarWarsCharacters
 
 logger = logging.getLogger(__name__)
 
@@ -144,7 +141,9 @@ class StarWarsCharactersFileDetailView(APIView):
 
             for page_num in range(1, int(page_number) + 1):
                 star_wars_characters_data_by_page = paginator.get_page(page_num)
-                star_wars_characters_full_data.extend(list(star_wars_characters_data_by_page))
+                star_wars_characters_full_data.extend(
+                    list(star_wars_characters_data_by_page)
+                )
 
         except FileNotFoundError:
             pass

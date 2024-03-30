@@ -10,6 +10,7 @@ IMPORTANT NOTE:
 5. The spinner effect is a dummy spinner, it runs for a fixed period. At times,
    it may take longer for the file to be generated from SWAPI.
    ( do wait a while for the file to be generated.)
+6. Files are formatted with isort, black and pylint.
 
 Clone this repo anywhere you want and move into the directory:
 

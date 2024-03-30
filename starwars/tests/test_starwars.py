@@ -1,9 +1,9 @@
-import pytest
-
 from unittest.mock import patch
 
-from starwars.star_wars import StarWarsCharacters
+import pytest
+
 from starwars.repository import StarWarsCharactersFileMetadataRepository
+from starwars.star_wars import StarWarsCharacters
 
 
 @pytest.mark.django_db

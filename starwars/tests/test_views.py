@@ -1,10 +1,8 @@
 import pytest
+from django.urls import reverse
 from rest_framework.test import APIClient
 
-from django.urls import reverse
-
 from starwars.models import StarWarsCharactersFileMetadata
-from starwars.repository import StarWarsCharactersFileMetadataRepository
 
 
 @pytest.mark.django_db
@@ -100,7 +98,8 @@ class TestStarWarsCharactersFileDetailView:
             == "test_star_wars_characters.csv"
         )
         assert (
-            str(response.context["star_wars_characters_full_data"][1][0]) == "Luke Skywalker"
+            str(response.context["star_wars_characters_full_data"][1][0])
+            == "Luke Skywalker"
         )
 
     def test_star_wars_characters_file_detail_api_invalid_file_name(self, client):

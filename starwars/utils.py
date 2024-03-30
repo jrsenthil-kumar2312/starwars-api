@@ -1,10 +1,6 @@
-import requests
-import petl as etl
-
-from petl.util.base import Table
-from datetime import datetime
-
 import logging
+
+import requests
 
 logger = logging.getLogger(__name__)
 
