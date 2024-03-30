@@ -153,3 +153,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Swagger configurations.
 SWAGGER_SETTINGS = {"SECURITY_DEFINITIONS": {"Basic": {"type": "basic"}}}
+
+QUICK_MODE = True

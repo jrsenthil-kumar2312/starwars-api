@@ -1,9 +1,15 @@
 You'll need to have Docker installed.
 
 IMPORTANT NOTE:
-1. This application uses sqlite as db for ease of development and testing
+1. This application uses sqlite as db for ease of development and testing.
 2. Logging gets saved in a local file: debug.log
 3. Migration runs automatically using docker-compose
+4. QUICK_MODE flag = This is enabled by default for ease of testing. When enabled,
+   only part of the star wars characters are extracted from SWAPI. To disable it, 
+   simply change QUICK_MODE = False in settings.py file.
+5. The spinner effect is a dummy spinner, it runs for a fixed period. At times,
+   it may take longer for the file to be generated from SWAPI.
+   ( do wait a while for the file to be generated.)
 
 Clone this repo anywhere you want and move into the directory:
 

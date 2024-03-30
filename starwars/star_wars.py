@@ -2,6 +2,8 @@ import petl as etl
 from petl.util.base import Table
 from datetime import datetime
 
+from django.conf import settings
+
 from starwars.constants import SWAPI_PEOPLE_API_URL
 from starwars.utils import fetch_data_from_url
 from starwars.repository import StarWarsCharactersFileMetadataRepository
@@ -31,6 +33,8 @@ class StarWarsCharacters:
         swapi_api_url_with_next_page = SWAPI_PEOPLE_API_URL
         star_wars_characters = []
 
+        counter = 0  # Added for quick mode (to assist on testing)
+
         while swapi_api_url_with_next_page:
             # Make a request to SWAPI
             swapi_data = fetch_data_from_url(fetch_url=swapi_api_url_with_next_page)
@@ -42,7 +46,10 @@ class StarWarsCharacters:
 
             swapi_api_url_with_next_page = swapi_data.get("next")
 
-            break
+            counter += 1
+
+            if settings.QUICK_MODE and counter >= 2:
+                break
 
         return star_wars_characters
     
