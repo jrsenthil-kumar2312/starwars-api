@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CSV to Table</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="mt-4">{{ star_wars_characters_file_name }}</h1>
+            <!-- Column selectors as toggle buttons -->
+            <div class="btn-group" role="group">
+                {% for header in star_wars_characters_full_data.0 %}
+                    <button type="button" class="btn btn-primary column-selector" data-column="{{ forloop.counter }}" data-file="{{ star_wars_characters_file_name }}" data-column-name="{{ header }}">{{ header }}</button>
+                {% endfor %}
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" id="csv-table">
+                    <thead class="thead-dark" id="table-header">
+                        <tr>
+                            <!-- Assuming the first row contains column headers -->
+                            {% for header in star_wars_characters_full_data.0 %}
+                                <th>{{ header }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        {% for row in star_wars_characters_full_data|slice:"1:" %}
+                            <tr>
+                                {% for column in row %}
+                                    <!-- Render each cell in the row -->
+                                    <td>{{ column }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% if star_wars_characters_data_by_page.has_next %}
+                    <form action="" method="GET">
+                        <input type="hidden" name="page" value="{{ star_wars_characters_data_by_page.next_page_number }}">
+                        <button type="submit">Load more</button>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Bootstrap JS (optional) -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>
