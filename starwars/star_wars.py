@@ -6,7 +6,7 @@ from petl.util.base import Table
 
 from starwars.constants import SWAPI_PEOPLE_API_URL
 from starwars.repository import StarWarsCharactersFileMetadataRepository
-from starwars.utils import fetch_data_from_url
+from starwars.utils import fetch_data_from_url, remove_unused_columns
 
 
 class StarWarsCharacters:
@@ -27,10 +27,7 @@ class StarWarsCharacters:
 
         homeworld_info = fetch_data_from_url(fetch_url=homeworld_name_url)
 
-        if homeworld_info:
-            return homeworld_info.get("name")
-
-        return None
+        return homeworld_info.get("name")
 
     def get_star_wars_characters(self) -> list:
         """Return star wars characters data from the SWAPI URL."""
@@ -58,7 +55,7 @@ class StarWarsCharacters:
         return star_wars_characters
 
     def transform_star_wars_characters_data(
-        self, star_wars_characters: list
+        self, star_wars_characters: list, columns_to_remove: list | None = None
     ) -> Table | None:
         """Transform data from swapi api."""
 
@@ -66,16 +63,10 @@ class StarWarsCharacters:
 
         if not star_wars_characters_table:
             return None
+        
+        star_wars_characters_table = remove_unused_columns(
+            star_wars_characters_table, columns_to_remove)
 
-        star_wars_characters_table = etl.cutout(
-            star_wars_characters_table,
-            "url",
-            "films",
-            "species",
-            "vehicles",
-            "starships",
-            "created",
-        )
         star_wars_characters_table = etl.convert(
             star_wars_characters_table,
             "edited",
