@@ -36,6 +36,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path("", include("starwars.urls")),
+    path("v1/starwars/", include("starwars_webapps.urls")),
     path(
         "swagger/",
         schema_view.with_ui("swagger", cache_timeout=0),

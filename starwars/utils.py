@@ -19,6 +19,7 @@ def fetch_data_from_url(fetch_url: str) -> dict | None:
     logger.info(f"Failed to fetch data from {fetch_url}")
     return None
 
+
 def remove_unused_columns(table_to_remove: Table, columns_to_remove: list) -> Table:
     """Removed unused columns from a table."""
 

@@ -164,7 +164,14 @@ class StarWarsCharactersExtractionView(APIView):
 
     permission_classes = (permissions.AllowAny,)
 
-    columns_to_remove = ["url", "films", "species", "vehicles", "starships", "created",]
+    columns_to_remove = [
+        "url",
+        "films",
+        "species",
+        "vehicles",
+        "starships",
+        "created",
+    ]
 
     def get(self, request) -> HttpResponseRedirect | Response:
         """Get star wars character and store it in a csv."""
@@ -182,7 +189,8 @@ class StarWarsCharactersExtractionView(APIView):
 
             transformed_star_wars_table = (
                 star_wars_characters_handler.transform_star_wars_characters_data(
-                    star_wars_characters=star_wars_characters, columns_to_remove=self.columns_to_remove
+                    star_wars_characters=star_wars_characters,
+                    columns_to_remove=self.columns_to_remove,
                 )
             )
 
