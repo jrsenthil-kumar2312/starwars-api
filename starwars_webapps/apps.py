@@ -1,8 +1,6 @@
 from django.apps import AppConfig
 
 
-class StarwarsConfig(AppConfig):
-    """App configuration."""
-
+class WebappsConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "starwars"
+    name = "starwars_webapps"

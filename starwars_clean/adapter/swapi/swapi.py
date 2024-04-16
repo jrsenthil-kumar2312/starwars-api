@@ -8,8 +8,10 @@ from starwars.constants import SWAPI_PEOPLE_API_URL
 from starwars.repository import StarWarsCharactersFileMetadataRepository
 from starwars.utils import fetch_data_from_url, remove_unused_columns
 
+from starwars_clean.domain.ports.helper_starwars import SwapiHelperInterface
 
-class StarWarsCharacters:
+
+class SwapiHelper(SwapiHelperInterface):
     """Class to have all the functionalities related to star wars characters."""
 
     # Cache could have been used here to avoid the same
