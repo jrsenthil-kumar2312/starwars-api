@@ -1,7 +1,9 @@
 from datetime import datetime
 
 import petl as etl
-from django.conf import settings
+from django.conf import (
+    settings,
+)  # imported for testing purposes only. Should not be part of this module
 from petl.util.base import Table
 
 from starwars.constants import SWAPI_PEOPLE_API_URL
