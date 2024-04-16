@@ -17,7 +17,10 @@ class ExampleStarWarsCharactersFilesView(APIView):
     """
     Example endpoint to get star wars files details. This demonstrates that
     with clean architecture, the client(django in this case), can customize the
-    output based on it needs without any change to underlying codes.
+    output based on it needs without any change to the underlying business logic.
+
+    ExampleStarWarsCharactersFilesView --> returns JSON response
+    StarWarsCharactersFilesView --> returns HTML page
     """
 
     permission_classes = (permissions.AllowAny,)
@@ -33,7 +36,7 @@ class ExampleStarWarsCharactersFilesView(APIView):
 
 
 class StarWarsCharactersFilesView(APIView):
-    """Endpoint to get star wars files details."""
+    """Endpoint to get star wars files details which renders the file_list page."""
 
     permission_classes = (permissions.AllowAny,)
 
@@ -80,4 +83,3 @@ class StarWarsCharactersExtractionView(APIView):
                 {"error": f"Invalid data received from SWAPI: {str(e)}"},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR,
             )
-

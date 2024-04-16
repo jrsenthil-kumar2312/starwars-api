@@ -2,7 +2,9 @@ from django.db.models import DateField
 
 from starwars.models import StarWarsCharactersFileMetadata
 from starwars_clean.domain.models.model_file import File
-from starwars_clean.domain.ports.file_repository_starwars import StarWarsFileRepositoryInterface
+from starwars_clean.domain.ports.file_repository_starwars import (
+    StarWarsFileRepositoryInterface,
+)
 
 
 class StarWarsCharactersFileMetadataRepository(StarWarsFileRepositoryInterface):

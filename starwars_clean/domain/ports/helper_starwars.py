@@ -1,5 +1,6 @@
 from petl.util.base import Table
 
+
 class SwapiHelperInterface:
     """Class to have all the functionalities related to star wars characters."""
 

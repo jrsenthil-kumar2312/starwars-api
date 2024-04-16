@@ -23,5 +23,5 @@ class StarWarsContainer(containers.DeclarativeContainer):
     starwars_service = providers.Factory(
         StarWarsService,
         starwars_file_repository=starwars_file_repository,
-        starwars_helper=starwars_helper
+        starwars_helper=starwars_helper,
     )
