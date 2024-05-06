@@ -1,4 +1,6 @@
-You'll need to have Docker installed.
+A simple implementation of StarWars API (SWAPI) using 2 different approach:
+1. Writing API within the framework (Django)
+2. Writing API out of the framework (Django) - preferred approach
 
 IMPORTANT NOTE:
 1. This application uses sqlite as db for ease of development and testing.
@@ -21,7 +23,7 @@ cd tiretutor_starwars
 ```
 
 Build everything:
-The first time you run this it's going to take 1-2 minutes. That's because it's going to download a Python images and build the dependencies.
+The initial run will require 1-2 minutes as it downloads a Python image and constructs the necessary dependencies.
 
 ```
 docker-compose build
