@@ -1,6 +1,6 @@
 A simple implementation of StarWars API (SWAPI) using 2 different approach:
 1. Writing API within the framework (Django)
-2. Writing API out of the framework (Django) - preferred approach
+2. Writing API out of the framework (Django) - preferred approach with clean architecture
 
 IMPORTANT NOTE:
 1. This application uses sqlite as db for ease of development and testing.
@@ -13,7 +13,6 @@ IMPORTANT NOTE:
    it may take longer for the file to be generated from SWAPI.
    ( do wait a while for the file to be generated.)
 6. Files are formatted with isort, black and pylint.
-7. I have added some unit tests but it does not cover all the lines.
 
 Clone this repo anywhere you want and move into the directory:
 
