@@ -1,6 +1,6 @@
 A simple implementation of StarWars API (SWAPI) using 2 different approach:
 1. Writing API within the framework (Django)
-2. Writing API out of the framework (Django) - preferred approach with clean architecture
+2. Writing API out of the framework (Django) - preferred approach with clean architecture with dependency injection. (refer to starwars_clean)
 
 IMPORTANT NOTE:
 1. This application uses sqlite as db for ease of development and testing.
@@ -47,11 +47,3 @@ Future improvements:
 
 > 1. Permission to APIs should be restricted instead of allowing it to be accessed by anyone
 > 2. These APIs do not have any authentication, a simple JWT implementation will be good to add.
-> 3. I have not used any clean architecture concept here apart from the repository layer. It will
-     be good to have views -> service -> repository flow as this will create a clear separation.
-> 4. Additionally, Pydantic model should be used as data transfer model between the layers stated above.
-     This will allow the layers to work together even if the underlying technology changes.
-> 5. Another approach I usually take is to code out of the framework (django).This reduces dependencies.
-     I did not do it here in order to keep it simple.
-> 6. Dependency injection can be used instead of importing lower level module to higher level module. 
-     This allows a more isolated unit testing and reduces coupling.
